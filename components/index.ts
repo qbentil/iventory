@@ -1,0 +1,5 @@
+export { default as Login } from './login';
+export { default as Footer } from './footer';
+export { default as Loader } from './loader';
+export { default as Authenticate } from './auth'
+export { default as Navbar } from './navbar';
