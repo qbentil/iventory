@@ -1,43 +1,35 @@
-import { Authenticate, Footer, Loader } from '@/components';
+import { AiFillTags, AiOutlineStock } from 'react-icons/ai';
+import { HiOutlineOfficeBuilding, HiOutlineUsers } from 'react-icons/hi';
 
-import Card from '@/components/cards';
-import Head from 'next/head';
-import { ImSpinner } from 'react-icons/im'
-import { Navbar } from '@/components';
+import { BiSolidReport } from 'react-icons/bi';
+import { FaOpencart } from 'react-icons/fa';
 import { IoArrowForward } from 'react-icons/io5'
-const cardData = [
-  { title: 'Stock', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/sms', linkText: 'View' },
-  { title: 'Items', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/contacts', linkText: 'View' },
-  { title: 'Total Groups', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/groups', linkText: 'View' },
-  { title: 'Total Templates', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/templates', linkText: 'View' },
-  { title: 'Total Campaigns', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/campaigns', linkText: 'View' },
-  { title: 'Total Users', Icon: IoArrowForward, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', link: '/users', linkText: 'View' },
-]
+import Link from 'next/link';
+import { NavItems } from '@/utils';
+import RootLayout from '@/App/layout';
 
 const Home = () => {
   return (
-    <Authenticate >
-      {/*  */}
-      <div className='w-screen h-screen flex flex-col bg-green-50'>
-        {/* navbar */}
-        <Navbar />
-
-        {/* tabs */}
-        <div className="w-full flex items-center justify-center">
-          <div className="w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-5">
-            {
-              cardData.map((card) => (
-                <Card {...card} key={card.title} />
-              ))
-            }
-          </div>
+    <RootLayout>
+      <div className="w-full h-screen flex flex-col items-center justify-start pt-10">
+        <div className="w-full flex flex-col items-center justify-center my-6">
+          <p className="text-2xl text-gray-700">Welcome to <span className='font-bold'>SMS.IO</span>, click on a module below to get started</p>
         </div>
 
-
-        {/* footer */}
-        <Footer />
+        <div className=" w-[80%] h-[30vh] flex gap-x-10 gap-y-7 flex-wrap items-center justify-center py-5">
+          {
+            NavItems.map((item) => (
+              <Link href={item.link} key={item.link} className={` p-5 rounded-md hover:underline decoration-${item.color}-600 cursor-pointer gap-y-2 flex flex-col items-center justify-center`}>
+                <div className={`w-[80px] h-[80px] flex items-center justify-center rounded-full bg-${item.color}-50`}>
+                  <item.icon className={`text-${item.color}-600 w-10 h-10`} />
+                </div>
+                <p className={`text-white text-sm`}>{item.title}</p>
+              </Link>
+            ))
+          }
+        </div>
       </div>
-    </Authenticate>
+    </RootLayout>
   )
 }
 
