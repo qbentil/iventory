@@ -26,6 +26,11 @@ const Header = () => {
         return () => clearInterval(interval)
     }, [])
 
+    const Logout = () => {
+        userHooks({ type: 'remove' })
+        window.location.reload()
+    }
+
 
     return (
         <nav className="w-full shadow bg-gray-800 text-white">
@@ -53,7 +58,7 @@ const Header = () => {
                         {/* user info, name and potforlio */}
                         <div className="flex flex-col items-start justify-center px-3 text-left gap-y-1" id="user-dropdown">
                             <span className="text-sm text-white font-medium">
-                                {user?.name || 'John Doe'}
+                                {user?.email || 'John Doe'}
                             </span>
                         </div>
                     </div>
@@ -61,10 +66,10 @@ const Header = () => {
                     {/* vertical line seperate */}
                     <div className="w-[1px] h-[30px] bg-gray-300"></div>
                     {/* logout link */}
-                    <a href="#" className="flex items-center justify-center gap-x-1 text-sm text-gray-300 hover:text-gray-400">
+                    <div onClick={Logout} className="flex cursor-pointer items-center justify-center gap-x-1 text-sm text-gray-300 hover:text-gray-400">
                         <CiLogout className='w-5 h-5' />
                         <span>Logout</span>
-                    </a>
+                    </div>
 
                 </div>
             </div>

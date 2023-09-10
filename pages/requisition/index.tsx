@@ -1,12 +1,12 @@
 import React from 'react'
 import RootLayout from '@/App/layout'
 
-const Sales = () => {
+const Requisition = () => {
     return (
         <RootLayout>
-            <div>Sales</div>
+            <div>Requisition</div>
         </RootLayout>
     )
 }
 
-export default Sales
+export default Requisition

@@ -35,6 +35,7 @@ const Login = () => {
         setLoading(false)
         // redirect to dashboard : /
         router.push('/')
+        window.location.reload()
     }
 
     const handleInputChange = (e: any) => {
@@ -42,7 +43,7 @@ const Login = () => {
         setCredentials({ ...credentials, [id]: value })
     }
     return (
-        <section className="w-screen h-screen flex items-center justify-center bg-green-100">
+        <section className="w-screen h-screen flex items-center justify-center bg-green-700">
             <div className="w-full md:w-[30%] shadow-sm px-2 flex items-center justify-center">
                 <form className='w-full flex flex-col gap-y-3 p-5 py-10 rounded' autoComplete='off' onSubmit={handleSubmit}>
 
