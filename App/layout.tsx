@@ -15,8 +15,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 <Navigations />
                 {/* children */}
                 {children}
-
-
                 {/* footer */}
                 <Footer />
             </div>

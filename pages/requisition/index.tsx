@@ -4,7 +4,7 @@ import RootLayout from '@/App/layout'
 const Requisition = () => {
     return (
         <RootLayout>
-            <div>Requisition</div>
+            <p>Requisition</p>
         </RootLayout>
     )
 }
