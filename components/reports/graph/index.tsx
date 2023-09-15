@@ -51,7 +51,7 @@ const TabsData = [
 
 const Tab = ({ count, title, range }: { count: number, title: string, range: string }) => {
     return (
-        <div className='w-full h-32 flex flex-col items-start justify-start bg-green-700 px-4 py-2'>
+        <div className='w-full h-32 flex flex-col items-start justify-start bg-green-800 px-4 py-2'>
             <p className='text-5xl font-bold text-gray-50'>{count}</p>
             <div className='flex my-2 flex-col items-start w-full'>
                 <p className='text-sm text-gray-50'>{range}</p>

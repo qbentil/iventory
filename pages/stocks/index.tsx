@@ -5,7 +5,11 @@ import { Table } from '@/components'
 const Stock = () => {
     return (
         <RootLayout>
-            <Table />
+            <div className="w-screen overflow-x-hidden">
+                {/* <div className="card"> */}
+                <Table />
+                {/* </div> */}
+            </div>
         </RootLayout>
     )
 }
