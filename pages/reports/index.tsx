@@ -1,4 +1,5 @@
 import { CiSearch, CiViewTable } from 'react-icons/ci'
+import { GraphicalReport, TabularReport } from '@/components'
 
 import React from 'react'
 import RootLayout from '@/App/layout'
@@ -22,28 +23,22 @@ const Reports = () => {
     const [view, setView] = React.useState('graphical' as 'graphical' | 'tabular')
     return (
         <RootLayout>
-            <div className='w-full h-screen flex flex-col items-start justify-start bg-gray-50'>
+            <div className='w-full h-screen flex flex-col items-start justify-start bg-gray-100 overflow-x-hidden'>
                 {/* header to toggle between graphical and tabular view */}
                 <div className='w-full flex items-end justify-between gap-x-3 bg-white pb-0 px-3'>
                     <TabView view={view} setView={setView} />
                     {/* search bar */}
-                    <div className="flex items-center justify-center bg-gray-100 px-3 py-2 rounded-full">
+                    <div className="flex items-center justify-center bg-gray-100 px-3 py-1 rounded-full mb-1">
                         <span className="flex items-center justify-center gap-x-3">
                             <CiSearch className="text-green-700 font-bold" />
-                            <input type="text" placeholder="Search..." className="text-green-700 bg-transparent outline-none" />
+                            <input type="text" placeholder="Search..." className="w-64   text-green-700 bg-transparent outline-none" />
                         </span>
                     </div>
                 </div>
                 {/* View Content */}
-                <div className='w-full h-full flex items-center justify-center bg-gray-50'>
-                    {
-                        view === 'graphical' ? (
-                            <p>Graphical View</p>
-                        ) : (
-                            <p>Tabular View</p>
-                        )
-                    }
-                </div>
+                {
+                    view === 'graphical' ? <GraphicalReport /> : <TabularReport />
+                }
             </div>
         </RootLayout>
     )

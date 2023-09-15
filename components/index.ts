@@ -5,3 +5,5 @@ export { default as Authenticate } from './auth'
 export { default as Header } from './header';
 export { default as Navigations } from './navigations';
 export { default as Table } from './table'
+export {default as GraphicalReport} from './reports/graph'
+export {default as TabularReport} from './reports/tabular'
