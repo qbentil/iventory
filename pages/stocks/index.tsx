@@ -1,10 +1,11 @@
 import React from 'react'
 import RootLayout from '@/App/layout'
+import { Table } from '@/components'
 
 const Stock = () => {
     return (
         <RootLayout>
-            <div>Stock</div>
+            <Table />
         </RootLayout>
     )
 }
