@@ -24,7 +24,7 @@ const Reports = () => {
         <RootLayout>
             <div className='w-full h-screen flex flex-col items-start justify-start bg-gray-50'>
                 {/* header to toggle between graphical and tabular view */}
-                <div className='w-full flex items-end justify-between gap-x-3 bg-white py-2 pb-0 px-3'>
+                <div className='w-full flex items-end justify-between gap-x-3 bg-white pb-0 px-3'>
                     <TabView view={view} setView={setView} />
                     {/* search bar */}
                     <div className="flex items-center justify-center bg-gray-100 px-3 py-2 rounded-full">
@@ -33,6 +33,16 @@ const Reports = () => {
                             <input type="text" placeholder="Search..." className="text-green-700 bg-transparent outline-none" />
                         </span>
                     </div>
+                </div>
+                {/* View Content */}
+                <div className='w-full h-full flex items-center justify-center bg-gray-50'>
+                    {
+                        view === 'graphical' ? (
+                            <p>Graphical View</p>
+                        ) : (
+                            <p>Tabular View</p>
+                        )
+                    }
                 </div>
             </div>
         </RootLayout>
