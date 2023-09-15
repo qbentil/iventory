@@ -11,7 +11,7 @@ import RootLayout from '@/App/layout';
 const Home = () => {
   return (
     <RootLayout>
-      <div className="w-full h-screen flex flex-col items-center justify-start pt-10 bg-transparent">
+      <div className="w-full h-screen flex flex-col items-center justify-start pt-10 bg-green-600">
         <div className="w-full flex flex-col items-center justify-center my-6">
           <p className="text-2xl text-gray-700">Welcome to <span className='font-bold'>SMS.IO</span>, click on a module below to get started</p>
         </div>
