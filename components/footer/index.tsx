@@ -22,7 +22,7 @@ const Footer = () => {
               &copy; {
                 new Date().getFullYear()
               }
-              <span className="font-bold"> SMS.IO 1.0</span>
+              <span className="font-bold"> SMS.IO 1.0 | DVLA</span>
             </p>
             <span className='text-sm text-green-500'><BsShieldLock /></span>
           </div>
