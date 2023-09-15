@@ -168,7 +168,7 @@ export default function BasicFilterDemo() {
   const header = renderHeader();
 
   return (
-    <div className="card">
+    <div className="max-h-[80vh]">
       <DataTable value={items} paginator rows={10} dataKey="id" filters={filters} filterDisplay="row" loading={loading}
         globalFilterFields={['name', 'prices', 'quantity', 'status', 'rep.name']} header={header} emptyMessage="No customers found.">
         <Column field="name" header="Name" filter filterPlaceholder="Search by name" style={{ minWidth: '12rem' }} />
