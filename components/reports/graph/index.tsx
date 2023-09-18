@@ -2,6 +2,7 @@ import { BarChart, DoughnutChart, LineChart } from '@/components'
 
 import { BsArrowUp } from 'react-icons/bs'
 import React from 'react'
+import { faker } from '@faker-js/faker'
 
 const TabsData = [
     {
@@ -50,6 +51,66 @@ const TabsData = [
         range: 'Last Month'
     }
 ]
+const label1 = ["Revenue", "Cost"]
+const label2 = ["Revenue", "Cost", "Expenses"]
+const label3 = ["Actuals", "Budget"]
+const RevCost = {
+    labels: label1,
+    datasets: [
+        {
+            label: '# of Items',
+            data: label1.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            backgroundColor: [
+                '#4CAF50',
+                '#76FF03',
+            ],
+            borderColor: [
+                '#43A047',
+                '#64DD17',
+            ],
+            borderWidth: 1,
+        },
+    ],
+};
+
+const ActualBudget = {
+    labels: label3,
+    datasets: [
+        {
+            label: '# of Items',
+            data: label3.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            backgroundColor: [
+                '#4CAF50',
+                '#76FF03',
+            ],
+            borderColor: [
+                '#43A047',
+                '#64DD17',
+            ],
+            borderWidth: 1,
+        },
+    ],
+}
+const RevCostExp = {
+    labels: label2,
+    datasets: [
+        {
+            label: '# of Items',
+            data: label2.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            backgroundColor: [
+                '#76FF03',
+                '#4CAF50',
+                '#FFB700',
+            ],
+            borderColor: [
+                '#64DD17',
+                '#43A047',
+                '#FFB74D',
+            ],
+            borderWidth: 1,
+        },
+    ],
+}
 
 const Tab = ({ count, title, range }: { count: number, title: string, range: string }) => {
     return (
@@ -65,7 +126,7 @@ const Tab = ({ count, title, range }: { count: number, title: string, range: str
 
 const Graphical = () => {
     return (
-        <div className='w-full flex items-start justify-start'>
+        <div className='w-full flex items-start justify-start mb-4'>
             {/* content left */}
             <div className='w-1/5 h-full flex flex-col gap-y-3 items-center justify-center py-2 px-4'>
                 <div className='w-full flex flex-col gap-y-2 items-center justify-center  py-2 px-3'>
@@ -108,19 +169,23 @@ const Graphical = () => {
                     </div>
                 </div>
                 {/* content botton */}
-                <div className='w-full flex items-start justify-start gap-x-4 py-2 px-3'>
-                    <div className='w-1/2 h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
-                        <DoughnutChart />
+                <div className='w-full grid grid-cols-3 items-start justify-start gap-x-4 py-2 px-3'>
+                    <div className='h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
+                        <DoughnutChart data={RevCost} />
                     </div>
-                    <div className='w-1/2 h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
-                        <LineChart />
+                    <div className='h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
+                        <DoughnutChart data={ActualBudget} />
+                    </div>
+                    <div className='h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
+                        <DoughnutChart data={RevCostExp} />
                     </div>
                     {/* <DoughnutChart /> */}
                 </div>
                 <div className='w-full flex items-center justify-center gap-x-4 py-2 px-3 '>
-                    {/* <div className='flex gap-y-5 items-center justify-center bg-white px-8 py-10 shadow-lg'> */}
-                        <BarChart />
-                    {/* </div> */}
+                    <BarChart />
+                </div>
+                <div className='w-full flex items-center justify-center gap-x-4 py-2 px-3 mb-4'>
+                    <LineChart />
                 </div>
             </div>
         </div>

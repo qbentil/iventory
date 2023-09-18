@@ -53,7 +53,7 @@ export const options = {
     },
 };
 
-const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', "Nov", "Dec"];
 
 export const data = {
     labels,
@@ -61,15 +61,15 @@ export const data = {
         {
             label: 'Item 1',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: '#FFB74D',
+            backgroundColor: '#FF9800',
             yAxisID: 'y',
         },
         {
             label: 'Item 2',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            borderColor: '#43A047',
+            backgroundColor: '#4CAF50',
             yAxisID: 'y1',
         },
     ],
