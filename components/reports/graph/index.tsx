@@ -128,8 +128,8 @@ const Graphical = () => {
     return (
         <div className='w-full flex items-start justify-start mb-4'>
             {/* content left */}
-            <div className='w-1/5 h-full flex flex-col gap-y-3 items-center justify-center py-2 px-4'>
-                <div className='w-full flex flex-col gap-y-2 items-center justify-center  py-2 px-3'>
+            <div className='w-1/5 h-full flex flex-col gap-y-3 items-center justify-start py-2 px-4'>
+                <div className='w-full flex flex-col gap-y-2  items-center justify-center  py-2 px-3'>
                     {
                         TabsData.map((item) => (
                             <Tab key={item.title} count={item.count} title={item.title} range={item.range} />
