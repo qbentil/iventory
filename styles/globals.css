@@ -21,7 +21,7 @@ body::-webkit-scrollbar-track,
 
 body::-webkit-scrollbar-thumb,
 .scrollbar-show::-webkit-scrollbar-thumb {
-    background-color: #F2186E;
+    background-color: #025704;
     outline: none;
 }
 

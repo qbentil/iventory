@@ -1,3 +1,5 @@
+import { BarChart, DoughnutChart, LineChart } from '@/components'
+
 import { BsArrowUp } from 'react-icons/bs'
 import React from 'react'
 
@@ -75,7 +77,7 @@ const Graphical = () => {
                 </div>
             </div>
             {/* Content Right */}
-            <div className='w-4/5 h-full flex items-start justify-start py-2 px-4'>
+            <div className='w-4/5 h-full flex  flex-col items-start justify-start py-2 px-4'>
                 {/* content top */}
                 <div className='w-full flex items-start justify-start gap-x-4 py-2 px-3'>
                     <div className='w-1/2 h-full flex flex-col gap-y-5 items-start justify-start bg-green-900 px-8 py-10 shadow-lg'>
@@ -106,6 +108,20 @@ const Graphical = () => {
                     </div>
                 </div>
                 {/* content botton */}
+                <div className='w-full flex items-start justify-start gap-x-4 py-2 px-3'>
+                    <div className='w-1/2 h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
+                        <DoughnutChart />
+                    </div>
+                    <div className='w-1/2 h-full flex flex-col gap-y-5 items-start justify-start bg-white px-8 py-10 shadow-lg'>
+                        <LineChart />
+                    </div>
+                    {/* <DoughnutChart /> */}
+                </div>
+                <div className='w-full flex items-center justify-center gap-x-4 py-2 px-3 '>
+                    {/* <div className='flex gap-y-5 items-center justify-center bg-white px-8 py-10 shadow-lg'> */}
+                        <BarChart />
+                    {/* </div> */}
+                </div>
             </div>
         </div>
     )

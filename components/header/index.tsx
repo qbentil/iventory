@@ -8,7 +8,7 @@ import { userHooks } from '@/hooks'
 
 const Header = () => {
     const [user, setUser] = React.useState<any | null>(null)
-    const [time, setTime] = React.useState<any | null>(null)
+    const [time, setTime] = React.useState<any | null>(new Date().toLocaleTimeString())
 
     React.useEffect(() => {
         let user = userHooks({ type: 'get' })
@@ -38,7 +38,7 @@ const Header = () => {
                 <Link href={"/"} className='flex items-center justify-center gap-x-1'>
                     <a href="#" className="flex items-center justify-center gap-x-1">
                         {/* <img src="/assets/logo.png" className="h-6 mr-3" alt="Flowbite Logo" /> */}
-                        <span className="self-center text-xl font-semibold whitespace-nowrap">SMS.IO</span>
+                        <span className="self-center text-xl font-semibold whitespace-nowrap hover:text-green-600">SMS.IO</span>
                     </a>
                     <p className='text-xl text-gray-400'>| DVLA</p>
                 </Link>
