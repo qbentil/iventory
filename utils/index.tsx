@@ -1,9 +1,9 @@
 import { AiFillTags, AiOutlineStock } from 'react-icons/ai';
-import { HiOutlineOfficeBuilding, HiOutlineUsers } from 'react-icons/hi';
+import { HiOutlineGift, HiOutlineOfficeBuilding, HiOutlineUsers } from 'react-icons/hi';
+import { MdOutlineAdminPanelSettings, MdOutlineStoreMallDirectory } from 'react-icons/md';
 
 import { BiSolidReport } from 'react-icons/bi';
 import { FaOpencart } from 'react-icons/fa';
-import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 
 export const isValidEmail = (email: string) => {
     const re = /\S+@\S+\.\S+/
@@ -40,26 +40,26 @@ export const NavItemsAlt = [
         ), color: '#87ceeb', link: '/items'
     },
     {
-        title: 'Stocks', icon: ({ className }: { className: string }) => (
-            <AiOutlineStock className={className} />
-        ), color: 'green', link: '/stocks'
+        title: 'Suppliers', icon: ({ className }: { className: string }) => (
+            <HiOutlineUsers className={className} />
+        ), color: 'green', link: '/suppliers'
     },
     {
         title: 'Reports', icon: ({ className }: { className: string }) => (
             <BiSolidReport className={className} />
         ), color: 'yellow', link: '/reports'
     },
-    {
-        title: 'Requisition', icon: ({ className }: { className: string }) => (
-            <MdOutlineAdminPanelSettings className={className} />
-        ), color: 'red', link: '/requisition'
-    },
     // {title: "Expenditure", icon: MdOutlineAdminPanelSettings, color: 'red', link: '/expenditure'}
     // { title: 'Requisition', icon: FaOpencart, color: 'red', link: '/sales' },
     {
-        title: 'Customers', icon: ({ className }: { className: string }) => (
-            <HiOutlineUsers className={className} />
-        ), color: 'teal', link: '/customers'
+        title: 'Warehouse', icon: ({ className }: { className: string }) => (
+            <MdOutlineStoreMallDirectory className={className} />
+        ), color: 'teal', link: '/warehouse'
+    },
+    {
+        title: 'Requisition', icon: ({ className }: { className: string }) => (
+            <HiOutlineGift className={className} />
+        ), color: 'red', link: '/requisition'
     },
     {
         title: 'Office', icon: ({ className }: { className: string }) => (

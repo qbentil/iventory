@@ -210,3 +210,31 @@ export const BarGraphData = {
         },
     ],
 };
+
+
+export const UserGroups = [
+    {
+        _id: 11,
+        title: "User"
+    },
+    {
+        _id: 12,
+        title: "HOD",
+    },
+    {
+        _id: 13,
+        title: "Audit"
+    },
+    {
+        _id: 14,
+        title: "Procurement"
+    },
+    {
+        _id: 15,
+        title: "Manager"
+    },
+    {
+        _id: 16,
+        title: "Store House"
+    }
+]
