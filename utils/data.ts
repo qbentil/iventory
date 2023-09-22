@@ -215,7 +215,7 @@ export const BarGraphData = {
 export const UserGroups = [
     {
         _id: 11,
-        title: "User"
+        title: "Staff"
     },
     {
         _id: 12,
@@ -238,3 +238,7 @@ export const UserGroups = [
         title: "Store House"
     }
 ]
+
+export const getUserGroup = (id: number) => {
+    return UserGroups.find((group) => group._id === id)
+}

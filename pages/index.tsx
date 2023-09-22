@@ -7,8 +7,10 @@ import { FaOpencart } from 'react-icons/fa';
 import { IoArrowForward } from 'react-icons/io5'
 import Link from 'next/link';
 import RootLayout from '@/App/layout';
+import { useStateValue } from '@/context/StateProvider';
 
 const Home = () => {
+  const [{ user }, dispatch] = useStateValue()
   return (
     <RootLayout>
       <div className="w-full h-screen flex flex-col items-center justify-start pt-10 bg-green-600">
@@ -18,16 +20,20 @@ const Home = () => {
 
         <div className="w-[80%] h-[30vh] flex gap-x-10 gap-y-7 flex-wrap items-center justify-center py-5">
           {
-            NavItemsAlt.map((item) => (
-              <Link href={item.link} key={item.link}>
-                <div className={`p-5 rounded-md hover:underline text-white decoration-teal-600 cursor-pointer gap-y-2 flex flex-col items-center justify-center`}>
-                  <div className={`w-[80px] h-[80px] flex items-center justify-center rounded-full bg-teal-50`}>
-                    {item.icon({ className: `text-teal-600 h-10 w-10` })}
+            user && NavItemsAlt.map((item) => {
+              // check if user.role is in the array of userGroups
+              if (!item.userGroups.includes(user?.role)) return null
+              return (
+                <Link href={item.link} key={item.link}>
+                  <div className={`p-5 rounded-md hover:underline text-white decoration-teal-600 cursor-pointer gap-y-2 flex flex-col items-center justify-center`}>
+                    <div className={`w-[80px] h-[80px] flex items-center justify-center rounded-full bg-teal-50`}>
+                      {item.icon({ className: `text-teal-600 h-10 w-10` })}
+                    </div>
+                    <p className="text-sm">{item.title}</p>
                   </div>
-                  <p className="text-sm">{item.title}</p>
-                </div>
-              </Link>
-            ))
+                </Link>
+              )
+            })
           }
         </div>
       </div>

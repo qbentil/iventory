@@ -19,3 +19,11 @@ export const userHooks = (action: { type: string, payload?: any }) => {
             return JSON.parse(localStorage.getItem('user') || '{}')
     }
 }
+
+export const fetchUser = (callback: any) => {
+    if (!process.browser) return
+    let user = userHooks({ type: 'get' })
+    if (typeof user === 'object' && Object.keys(user).length > 0) {
+        callback(user)
+    }
+}

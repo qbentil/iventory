@@ -13,7 +13,7 @@ import { userHooks } from '@/hooks';
 
 const Login = () => {
     const [loading, setLoading] = useState(false)
-    const [credentials, setCredentials] = useState({ email: '', password: '' })
+    const [credentials, setCredentials] = useState({ email: '', password: '', role: 11 })
     const router = useRouter()
     const handleSubmit = (e: any) => {
         e.preventDefault()

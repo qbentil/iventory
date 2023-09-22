@@ -17,7 +17,6 @@ export const formatDate = (date: string) => {
         day: 'numeric',
         year: 'numeric'
     })
-
 }
 
 
@@ -37,34 +36,32 @@ export const NavItemsAlt = [
     {
         title: 'Items', icon: ({ className }: { className: string }) => (
             <AiFillTags className={className} />
-        ), color: '#87ceeb', link: '/items'
+        ), color: '#87ceeb', link: '/items', userGroups: [11, 12, 13, 14, 15, 16]
     },
     {
         title: 'Suppliers', icon: ({ className }: { className: string }) => (
             <HiOutlineUsers className={className} />
-        ), color: 'green', link: '/suppliers'
+        ), color: 'green', link: '/suppliers', userGroups: [14, 16]
     },
     {
         title: 'Reports', icon: ({ className }: { className: string }) => (
             <BiSolidReport className={className} />
-        ), color: 'yellow', link: '/reports'
+        ), color: 'yellow', link: '/reports', userGroups: [15]
     },
-    // {title: "Expenditure", icon: MdOutlineAdminPanelSettings, color: 'red', link: '/expenditure'}
-    // { title: 'Requisition', icon: FaOpencart, color: 'red', link: '/sales' },
     {
         title: 'Warehouse', icon: ({ className }: { className: string }) => (
             <MdOutlineStoreMallDirectory className={className} />
-        ), color: 'teal', link: '/warehouse'
+        ), color: 'teal', link: '/warehouse', userGroups: [14, 15, 16]
     },
     {
         title: 'Requisition', icon: ({ className }: { className: string }) => (
             <HiOutlineGift className={className} />
-        ), color: 'red', link: '/requisition'
+        ), color: 'red', link: '/requisition', userGroups: [11, 12, 13, 14, 15, 16]
     },
     {
         title: 'Office', icon: ({ className }: { className: string }) => (
             <HiOutlineOfficeBuilding className={className} />
-        ), color: 'gray', link: '/office'
+        ), color: 'gray', link: '/office', userGroups: [15]
     },
 
 ]
@@ -79,3 +76,4 @@ export const ReduceColorOpacity = (color: string, opacity: number) => {
 
     return `rgba(${r},${g},${b},${opacity})`;
 }
+
