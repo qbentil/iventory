@@ -77,3 +77,10 @@ export const ReduceColorOpacity = (color: string, opacity: number) => {
     return `rgba(${r},${g},${b},${opacity})`;
 }
 
+export const DateFormatter = (date: Date): string => {
+    const dateObj = new Date(date);
+    const month = dateObj.toLocaleString("default", { month: "long" });
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    return `${month} ${day}, ${year}`;
+}
