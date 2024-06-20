@@ -1,5 +1,6 @@
 import { IItem, IRep } from "@/interfaces";
 
+import { DateFormatter } from ".";
 import { faker } from '@faker-js/faker';
 
 export const Reps: IRep[] = [
@@ -94,97 +95,6 @@ export const Items: IItem[] = [
         created_at: new Date(),
         updated_at: new Date()
     },
-    {
-        id: '1',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'approved',
-        rep: Reps[6],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '1',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'negotiation',
-        rep: Reps[6],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '2',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'approved',
-        rep: Reps[8],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '3',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'pending approval',
-        rep: Reps[4],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '4',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'negotiation',
-        rep: Reps[0],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '5',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'approved',
-        rep: Reps[3],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
-    {
-        id: '6',
-        name: 'Item 1',
-        description: 'Item 1 description',
-        price: 100,
-        quantity: 46,
-        image: 'https://picsum.photos/200/300',
-        category: 'Category 1',
-        status: 'pending approval',
-        rep: Reps[5],
-        created_at: new Date(),
-        updated_at: new Date()
-    },
 ]
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -242,3 +152,39 @@ export const UserGroups = [
 export const getUserGroup = (id: number) => {
     return UserGroups.find((group) => group._id === id)
 }
+
+export const ItemsColumns = [
+    {
+        name: 'Name',
+        selector: (row: any) => row.name,
+        sortable: true,
+    },
+    {
+        name: 'Price',
+        selector: (row: any) => row.price,
+        sortable: true
+    },
+    {
+        name: 'Quantity',
+        selector: (row: any) => row.quantity,
+    },
+    {
+        name: 'Total',
+        selector: (row: any) => row.category,
+        sortable: true,
+    },
+    {
+        name: 'Arrival Date',
+        selector: (row: any) => DateFormatter(row.created_at),
+        sortable: true,
+    },
+    {
+        name: 'Rep',
+        selector: (row: any) => row.rep.name,
+        sortable: true,
+    },
+    {
+        name: 'Action',
+        selector: (row: any) => row.actions
+    },
+];

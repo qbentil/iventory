@@ -1,17 +1,20 @@
+import { Items, ItemsColumns } from '@/utils/data'
+
 import React from 'react'
 import RootLayout from '@/App/layout'
 import { Table } from '@/components'
 
-const Items = () => {
+const Assets = () => {
   return (
     <RootLayout>
-      <div className="w-screen overflow-x-hidden">
-        {/* <div className="card"> */}
-          <Table />
-        {/* </div> */}
+      <div className="h-full w-screen overflow-x-hidden bg-white">
+        <Table
+          columns={ItemsColumns}
+          data={Items}
+        />
       </div>
     </RootLayout>
   )
 }
 
-export default Items
+export default Assets

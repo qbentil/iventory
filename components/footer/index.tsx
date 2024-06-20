@@ -6,7 +6,7 @@ import React from 'react'
 const Footer = () => {
   return (
     // the footer should be fixed to the bottom of the page
-    <footer className="fixed bottom-0 left-0 right-0 bg-gray-100">
+    <footer className="bottom-0 left-0 right-0 bg-gray-100">
       <div className="w-full flex items-center justify-center">
         <div className="w-[80%] flex items-center justify-center px-3 py-2">
           {/* logo */}

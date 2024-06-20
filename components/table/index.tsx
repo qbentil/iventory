@@ -2,60 +2,82 @@
 
 import { IItem, IRep } from '@/interfaces';
 import { Items, Reps } from '@/utils/data';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import DataTable from 'react-data-table-component';
 import { DateFormatter } from '@/utils';
+import { FaSort } from 'react-icons/fa';
+import SubHeaderComponentMemo from './header';
+import { toast } from 'react-toastify';
 
-const columns = [
-  {
-    name: 'Name',
-    selector: (row: any) => row.name,
-    sortable: true,
-  },
-  {
-    name: 'Price',
-    selector: (row: any) => row.price,
-    sortable: true
-  },
-  {
-    name: 'Quantity',
-    selector: (row: any) => row.quantity,
-  },
-  {
-    name: 'Total',
-    selector: (row: any) => row.category,
-    sortable: true,
-  },
-  {
-    name: 'Arrival Date',
-    selector: (row: any) => DateFormatter(row.created_at),
-    sortable: true,
-  },
-  {
-    name: 'Rep',
-    selector: (row: any) => row.rep.name,
-    sortable: true,
-  },
-  {
-    name: 'Action',
-    selector: (row: any) => <p>Actions</p>
-  },
-];
+interface Props {
+  data: any
+  columns: any;
+}
+const Table: FC<Props> = ({ data, columns }) => {
 
-const tableData = Items.map((item: IItem) => {
-  
-})
+  const TableData = data.map((item: any) => {
+    return {
+      ...item,
+      actions: <>
+        <div className='flex items-center gap-x-2'>
+          <button className='text-green-500 hover:text-green-600'>Edit</button>
+          <button className='text-red-500 hover:text-red-600'>Delete</button>
+        </div>
+      </>
+    }
+  })
+
+  const onRowClicked = (row: any) => {
+    toast.success(`You clicked ${row.name}`, { autoClose: 2000 })
+  }
+  const handleSearch = (query: string) => {
+    console.log('Searching for:', query);
+  };
+
+  const handleExport = () => {
+    console.log('Exporting data');
+  };
+
+  const handleAddNewItem = () => {
+    console.log('Adding new item');
+  };
+
+  const handleRefresh = () => {
+    console.log('Refreshing data');
+  };
+
+  const handleItemsPerPageChange = (itemsPerPage: number) => {
+    console.log('Items per page:', itemsPerPage);
+  };
 
 
-const Table = () => {
 
   return (
-    <div className="max-h-[80vh]">
+    <div className="w-full h-full px-8">
       <DataTable
         columns={columns}
-        data={Items}
-        selectableRows
+        data={TableData}
+        // selectableRows
+        highlightOnHover
+        sortIcon={<FaSort />}
+        subHeader
+        pagination
+        subHeaderComponent={
+          <SubHeaderComponentMemo
+            title="Items"
+            itemsPerPageOptions={[5, 10, 20, 30, 40, 50]}
+            onSearch={handleSearch}
+            onExport={handleExport}
+            onAddNewItem={handleAddNewItem}
+            onItemsPerPageChange={handleItemsPerPageChange}
+            onRefresh={handleRefresh}
+            showExport
+            showAddNewItem
+            showRefresh
+          />
+        }
+        onRowClicked={onRowClicked}
       />
     </div>
   );

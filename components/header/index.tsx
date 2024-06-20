@@ -65,7 +65,7 @@ const Header = () => {
                 <div className="relative flex items-center justify-center gap-x-3 px-2">
                     <div className="flex gap-2 rounded-full px-3 py-2 cursor-pointer items-center">
                         <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                            <img className="w-10 h-10 rounded-full" src="https://codersquiz.netlify.app/img/bentil.jpeg" alt="user photo" />
+                            <img className="w-10 h-10 rounded-full" src="/assets/avatar.jpeg" alt="user photo" />
                         </button>
                         {/* user info, name and potforlio */}
                         <div onClick={() => setDropdown(!dropdown)} className="flex items-center gap-x-2 justify-center px-3 text-left gap-y-1" id="user-dropdown">
