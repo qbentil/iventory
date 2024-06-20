@@ -1,6 +1,7 @@
 import { IItem, IRep } from "@/interfaces";
 
 import { DateFormatter } from ".";
+import { ITableColumn } from "@/interface";
 import { faker } from '@faker-js/faker';
 
 export const Reps: IRep[] = [
@@ -19,7 +20,7 @@ export const Reps: IRep[] = [
 export const Items: IItem[] = [
     {
         id: '1',
-        name: 'Item 1',
+        name: 'Item A',
         description: 'Item 1 description',
         price: 100,
         quantity: 46,
@@ -32,7 +33,7 @@ export const Items: IItem[] = [
     },
     {
         id: '1',
-        name: 'Item 1',
+        name: 'Item B',
         description: 'Item 1 description',
         price: 100,
         quantity: 46,
@@ -45,7 +46,7 @@ export const Items: IItem[] = [
     },
     {
         id: '1',
-        name: 'Item 1',
+        name: 'Item C',
         description: 'Item 1 description',
         price: 100,
         quantity: 46,
@@ -153,11 +154,12 @@ export const getUserGroup = (id: number) => {
     return UserGroups.find((group) => group._id === id)
 }
 
-export const ItemsColumns = [
+export const ItemsColumns: ITableColumn[] = [
     {
         name: 'Name',
         selector: (row: any) => row.name,
         sortable: true,
+        searchable: true
     },
     {
         name: 'Price',

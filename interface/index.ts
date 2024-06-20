@@ -6,3 +6,10 @@ export type Action = {
 export type State = {
     user: any | null
 };
+
+export interface ITableColumn {
+    name: string;
+    selector: (row: any) => any;
+    sortable?: boolean;
+    searchable?: boolean;
+}

@@ -9,8 +9,6 @@ interface SubHeaderComponentMemoProps {
     onExport?: () => void;
     onAddNewItem?: () => void;
     onRefresh?: () => void;
-    itemsPerPageOptions: number[];
-    onItemsPerPageChange: (itemsPerPage: number) => void;
     showExport?: boolean;
     showAddNewItem?: boolean;
     showRefresh?: boolean;
@@ -22,8 +20,6 @@ const SubHeaderComponentMemo: React.FC<SubHeaderComponentMemoProps> = ({
     onExport,
     onAddNewItem,
     onRefresh,
-    itemsPerPageOptions,
-    onItemsPerPageChange,
     showExport = true,
     showAddNewItem = true,
     showRefresh = true

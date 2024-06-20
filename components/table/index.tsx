@@ -1,20 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { IItem, IRep } from '@/interfaces';
-import { Items, Reps } from '@/utils/data';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
+import { BiSort } from 'react-icons/bi';
 import DataTable from 'react-data-table-component';
-import { DateFormatter } from '@/utils';
-import { FaSort } from 'react-icons/fa';
 import SubHeaderComponentMemo from './header';
 import { toast } from 'react-toastify';
 
 interface Props {
   data: any
   columns: any;
+  onRowClicked?: (row: any) => void;
+  handleSearch?: (query: string) => void;
+  handleExport?: () => void;
+  handleAddNewItem?: () => void;
+  handleRefresh?: () => void;
+
 }
-const Table: FC<Props> = ({ data, columns }) => {
+const Table: FC<Props> = ({ data, columns, onRowClicked, handleSearch, handleExport, handleAddNewItem, handleRefresh }) => {
 
   const TableData = data.map((item: any) => {
     return {
@@ -28,49 +31,46 @@ const Table: FC<Props> = ({ data, columns }) => {
     }
   })
 
-  const onRowClicked = (row: any) => {
-    toast.success(`You clicked ${row.name}`, { autoClose: 2000 })
-  }
-  const handleSearch = (query: string) => {
-    console.log('Searching for:', query);
-  };
+  const [TableDataState, setTableDataState] = React.useState(TableData)
 
-  const handleExport = () => {
-    console.log('Exporting data');
+  const _handleSearch = (query: string) => {
+    if (!query) {
+      setTableDataState(TableData)
+      return;
+    }
+    // filter using items in coumns which has searchable set to true
+    const filteredData = TableData.filter((item: any) => {
+      return columns.some((column: any) => {
+        if (column.searchable) {
+          const value = column.selector(item);
+          if (typeof value === 'string') {
+            return value.toLowerCase().includes(query.toLowerCase());
+          }
+          return false;
+        }
+        return false;
+      });
+    });
+    setTableDataState(filteredData)
   };
-
-  const handleAddNewItem = () => {
-    console.log('Adding new item');
-  };
-
-  const handleRefresh = () => {
-    console.log('Refreshing data');
-  };
-
-  const handleItemsPerPageChange = (itemsPerPage: number) => {
-    console.log('Items per page:', itemsPerPage);
-  };
-
 
 
   return (
     <div className="w-full h-full px-8">
       <DataTable
         columns={columns}
-        data={TableData}
+        data={TableDataState}
         // selectableRows
         highlightOnHover
-        sortIcon={<FaSort />}
+        sortIcon={<BiSort />}
         subHeader
         pagination
         subHeaderComponent={
           <SubHeaderComponentMemo
             title="Items"
-            itemsPerPageOptions={[5, 10, 20, 30, 40, 50]}
-            onSearch={handleSearch}
+            onSearch={handleSearch || _handleSearch}
             onExport={handleExport}
             onAddNewItem={handleAddNewItem}
-            onItemsPerPageChange={handleItemsPerPageChange}
             onRefresh={handleRefresh}
             showExport
             showAddNewItem
