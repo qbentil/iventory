@@ -30,7 +30,7 @@ const SearchSelectInput: FC<SearchSelectInputProps> = ({ id, placeholder, label,
           <SearchNormal size={14} className="text-gray-400" variant="TwoTone" />
         </div>
         <input onChange={
-          _.debounce((e) => {
+          _.debounce((e: { target: { value: string; }; }) => {
             handleSearch(e.target.value);
           }, 500)
 

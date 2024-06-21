@@ -29,6 +29,7 @@ const Assets = () => {
     <RootLayout>
       <div className="h-full w-screen overflow-x-hidden bg-white">
         <Table
+          title='Items'
           columns={ItemsColumns}
           data={Items}
           onRowClicked={onRowClicked}

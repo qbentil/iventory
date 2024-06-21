@@ -8,7 +8,8 @@ import SubHeaderComponentMemo from './header';
 import { toast } from 'react-toastify';
 
 interface Props {
-  data: any
+  title: string;
+  data: any;
   columns: any;
   onRowClicked?: (row: any) => void;
   handleSearch?: (query: string) => void;
@@ -17,7 +18,7 @@ interface Props {
   handleRefresh?: () => void;
 
 }
-const Table: FC<Props> = ({ data, columns, onRowClicked, handleSearch, handleExport, handleAddNewItem, handleRefresh }) => {
+const Table: FC<Props> = ({ title, data, columns, onRowClicked, handleSearch, handleExport, handleAddNewItem, handleRefresh }) => {
 
   const TableData = data.map((item: any) => {
     return {
@@ -67,7 +68,7 @@ const Table: FC<Props> = ({ data, columns, onRowClicked, handleSearch, handleExp
         pagination
         subHeaderComponent={
           <SubHeaderComponentMemo
-            title="Items"
+            title={title}
             onSearch={handleSearch || _handleSearch}
             onExport={handleExport}
             onAddNewItem={handleAddNewItem}
