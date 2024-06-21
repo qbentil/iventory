@@ -1,4 +1,4 @@
-import { IItem, IRep } from "@/interfaces";
+import { IItem, IRep, ISupplier, IWarehouse } from "@/interfaces";
 
 import { DateFormatter } from ".";
 import { ITableColumn } from "@/interface";
@@ -188,5 +188,272 @@ export const ItemsColumns: ITableColumn[] = [
     {
         name: 'Action',
         selector: (row: any) => row.actions
+    },
+];
+
+export const SuppliersColumn: ITableColumn[] = [
+    {
+        name: "ID",
+        selector: (row: any) => row.id,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Name",
+        selector: (row: any) => row.name,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Contat Person",
+        selector: (row: any) => row.contactPerson,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Email",
+        selector: (row: any) => row.email,
+        searchable: true
+    },
+    {
+        name: "Contact Phone",
+        selector: (row: any) => row.contactPerson
+    },
+    {
+        name: "Address",
+        selector: (row: any) => row.address
+    },
+    {
+        name: "City",
+        selector: (row: any) => row.city,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "country",
+        selector: (row: any) => row.country,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "description",
+        selector: (row: any) => row.description
+    },
+    {
+        name: "Status",
+        selector: (row: any) => row.status,
+        sortable: true
+    },
+    {
+        name: "Action",
+        selector: (row: any) => row.actions,
+        sortable: true
+    }
+];
+
+export const Suppliers: ISupplier[] = [
+    {
+        id: "1",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+    {
+        id: "2",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+    {
+        id: "3",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+    {
+        id: "4",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+    {
+        id: "5",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+    {
+        id: "6",
+        name: "Shadrack Bentil",
+        contactPerson: "Eugene Amedior",
+        email: "qbentil@gmail.com",
+        phone: "024419619",
+        address: "Kokomlemle",
+        city: "Chicago",
+        country: "USA",
+        description: "Hello there",
+        status: "active"
+    },
+];
+
+export const WarehouseColumn: ITableColumn[] = [
+    {
+        name: "ID",
+        selector: (row: any) => row.id,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Name",
+        selector: (row: any) => row.name,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Address",
+        selector: (row: any) => row.address
+    },
+    {
+        name: "City",
+        selector: (row: any) => row.city,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Country",
+        selector: (row: any) => row.country,
+        sortable: true,
+        searchable: true
+    },
+    {
+        name: "Capacity",
+        selector: (row: any) => row.capacity,
+        sortable: true
+    },
+    {
+        name: "Rack Count",
+        selector: (row: any) => row.rackCount,
+        sortable: true
+    },
+    {
+        name: "Aisle Count",
+        selector: (row: any) => row.aisleCount,
+        sortable: true
+    },
+    {
+        name: "Bin Count",
+        selector: (row: any) => row.binCount,
+        sortable: true
+    },
+    {
+        name: "Description",
+        selector: (row: any) => row.description
+    },
+    {
+        name: "Status",
+        selector: (row: any) => row.status,
+        sortable: true
+    },
+    {
+        name: "Action",
+        selector: (row: any) => row.actions
+    },
+];
+
+export const Warehouse: IWarehouse[] = [
+    {
+        id: "1",
+        name: "volkswagen",
+        address: "Kasoa",
+        city: "Berlin",
+        country: "Germany",
+        capacity: 100,
+        rackCount: 10,
+        aisleCount: 10,
+        binCount: 5,
+        description: "Hi there",
+        status: "inactive"
+    },
+    {
+        id: "1",
+        name: "volkswagen",
+        address: "Kasoa",
+        city: "Berlin",
+        country: "Germany",
+        capacity: 100,
+        rackCount: 10,
+        aisleCount: 10,
+        binCount: 5,
+        description: "Hi there",
+        status: "inactive"
+    },
+    {
+        id: "1",
+        name: "volkswagen",
+        address: "Kasoa",
+        city: "Berlin",
+        country: "Germany",
+        capacity: 100,
+        rackCount: 10,
+        aisleCount: 10,
+        binCount: 5,
+        description: "Hi there",
+        status: "inactive"
+    },
+    {
+        id: "1",
+        name: "volkswagen",
+        address: "Kasoa",
+        city: "Berlin",
+        country: "Germany",
+        capacity: 100,
+        rackCount: 10,
+        aisleCount: 10,
+        binCount: 5,
+        description: "Hi there",
+        status: "inactive"
+    },
+    {
+        id: "1",
+        name: "volkswagen",
+        address: "Kasoa",
+        city: "Berlin",
+        country: "Germany",
+        capacity: 100,
+        rackCount: 10,
+        aisleCount: 10,
+        binCount: 5,
+        description: "Hi there",
+        status: "inactive"
     },
 ];

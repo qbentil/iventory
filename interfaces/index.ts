@@ -24,3 +24,29 @@ export interface ICategory {
     updated_at: string;
 }
 
+export interface ISupplier {
+    id: string;
+    name: string;
+    contactPerson: string;
+    email: string;
+    phone: string;
+    address: string;
+    city: string;
+    country: string;
+    description: string;
+    status: "active" | "inactive";
+}
+
+export interface IWarehouse {
+    id: string;
+    name: string;
+    address: string;
+    city: string;
+    country: string;
+    capacity: number;
+    rackCount: number;
+    aisleCount: number;
+    binCount: number;
+    description: string;
+    status: "active" | "inactive"
+}
