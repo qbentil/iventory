@@ -1,7 +1,8 @@
+import { Warehouse, WarehouseColumn } from '@/utils/data'
+
 import React from 'react'
 import RootLayout from '@/App/layout'
 import { Table } from '@/components'
-import { WarehouseColumn, Warehouse } from '@/utils/data'
 import { toast } from 'react-toastify'
 
 const Customer = () => {
@@ -23,7 +24,7 @@ const Customer = () => {
 
     return (
         <RootLayout>
-            <div className="w-screen overflow-x-hidden">
+            <div className="h-full w-screen overflow-x-hidden bg-white">
             <Table
                 title='Warehouses'
                 columns={WarehouseColumn}

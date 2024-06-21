@@ -84,3 +84,7 @@ export const DateFormatter = (date: Date): string => {
     const year = dateObj.getFullYear();
     return `${month} ${day}, ${year}`;
 }
+
+export const classNames = (...classes: string[]) => {
+    return classes.filter(Boolean).join(' ')
+}
